@@ -1,9 +1,24 @@
 import React from 'react';
+import NewsArticle from '../NewsArticle/NewsArticle';
 import './NewsContainer.css'
 
-const NewsContainer = (props) => {
+const NewsContainer = ({articles}) => {
+
+  const localArticles = articles.map(article => {
+    return (
+      <NewsArticle
+        img={article.img}
+        headline={article.headline}
+        description={article.description}
+        url={article.url}
+      />
+    )
+  })
+
   return (
-    <h2>{console.log(props)}</h2>
+    <div className='articles-container'>
+      {localArticles}
+    </div>
   )
 }
 
